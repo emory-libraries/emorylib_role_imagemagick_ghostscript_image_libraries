@@ -15,7 +15,10 @@
   synchronize:
     dest: '{{ img_library_dest }}'
     src: '/tmp/{{ openjpg_filename }}/lib/'
-    #recursive: no
+    dirs: no
+    rsync_opts:
+      - "-d"
+      - "--exclude='*/'"
   delegate_to: '{{ inventory_hostname }}'
 
 - name: Update ldconfig
