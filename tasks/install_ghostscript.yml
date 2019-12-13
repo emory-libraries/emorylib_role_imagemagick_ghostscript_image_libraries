@@ -9,7 +9,13 @@
     src: '{{ ghostscript_download_url }}'
     dest: /tmp
     remote_src: yes
-  register: gs_dir
 
-- debug:
-    var: gs_dir  
+- name: Configure ghostscript
+  shell: ./configure
+  args:
+    chdir: '/tmp/ghostscript-{{ ghostscript_version }}'
+
+- name: Make install ghostscript
+  make:
+    chdir: '/tmp/ghostscript-{{ ghostscript_version }}'
+    target: install
