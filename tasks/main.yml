@@ -43,3 +43,10 @@
   include_tasks:
     file: rpm_install_ghostscript.yml
   when: not compile_ghostscript
+
+- name: Include tasks to compile openjpg
+  include_tasks:
+    file: compile_openjpg.yml
+  when:
+    - openjpg_version is defined
+    - openjpg_version != false

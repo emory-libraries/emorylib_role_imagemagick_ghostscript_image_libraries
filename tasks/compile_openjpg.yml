@@ -1,0 +1,6 @@
+---
+- name: Download OpenJPG Source
+  unarchive:
+    src: '{{ openjpg_download_url }}'
+    dest: /tmp
+    remote_src: yes
