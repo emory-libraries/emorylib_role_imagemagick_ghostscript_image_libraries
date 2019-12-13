@@ -8,9 +8,9 @@
 - name: Configure OpenJPG
   shell: cmake ./
   args:
-    chdir: '/tmp/{{ openjpg_filename }}'
+    chdir: '/tmp/openjpeg-v{{ openjpg_version }}-{{ openjpg_os }}'
 
 - name: Make install OpenJPG
   make:
-    chdir: '/tmp/{{ openjpg_filename }}'
+    chdir: '/tmp/openjpeg-v{{ openjpg_version }}-{{ openjpg_os }}'
     target: install
