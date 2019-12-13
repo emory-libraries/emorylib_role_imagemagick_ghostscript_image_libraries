@@ -5,6 +5,6 @@
     state: absent
   when: __imagemagick_lib_installed
 
-- name: Install ImageMagick RPM
+- name: Install ImageMagick Lib RPM
   yum:
     name: '{{ imagemagick_lib_download_url }}'
