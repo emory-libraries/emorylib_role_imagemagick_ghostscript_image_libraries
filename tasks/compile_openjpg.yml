@@ -4,3 +4,13 @@
     src: '{{ openjpg_download_url }}'
     dest: /tmp
     remote_src: yes
+
+- name: Configure OpenJPG
+  shell: cmake ./
+  args:
+    chdir: '/tmp/{{ openjpg_filename }}'
+
+- name: Make install OpenJPG
+  make:
+    chdir: '/tmp/{{ openjpg_filename }}'
+    target: install
