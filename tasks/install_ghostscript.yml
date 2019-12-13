@@ -8,6 +8,7 @@
   unarchive:
     src: '{{ ghostscript_download_url }}'
     dest: /tmp
+    remote_src: yes
   register: gs_dir
 
 - debug:
