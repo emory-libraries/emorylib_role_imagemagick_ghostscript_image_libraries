@@ -37,6 +37,7 @@
 - name: Get ghostscript version
   shell: gs --version
   register: gs_version
+  ignore_errors: true
 
 - name: Check if versions match
   set_fact:
