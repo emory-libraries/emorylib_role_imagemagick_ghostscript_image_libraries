@@ -10,7 +10,7 @@
     apply:
       vars:
         __imagemagick_installed: '{{ imagemagick_installed }}'
-  when: imagemagick_installed is false or installed != imagemagick_version
+  when: imagemagick_installed == false or installed != imagemagick_version
   vars:
     imagemagick_installed: '{{ true if ansible_facts.packages["ImageMagick-libs"] | length > 0  else false }}'
     installed_version: '{{ ansible_facts.packages["ImageMagick-libs"][0]["version"] | d() }}'
