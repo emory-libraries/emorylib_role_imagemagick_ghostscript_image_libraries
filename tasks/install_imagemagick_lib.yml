@@ -1,14 +1,10 @@
 ---
-- name: Check if version is already installed
-  debug:
-    msg: Add version checking logic here!
-
 - name: Remove Old ImageMagick Lib
   yum:
-    name: ImageMagick-libs
+    name: ImageMagick-lib
     state: absent
-  when: old_version_present | d (False)
+  when: __imagemagick_lib_installed
 
-- name: Install ImageMagick Lib RPM
+- name: Install ImageMagick RPM
   yum:
     name: '{{ imagemagick_lib_download_url }}'

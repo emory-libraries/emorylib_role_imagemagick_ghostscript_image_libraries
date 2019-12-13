@@ -10,9 +10,26 @@
     apply:
       vars:
         __imagemagick_installed: '{{ imagemagick_installed }}'
-  when: imagemagick_installed == false or installed != imagemagick_version
+  when: 
+    - imagemagick_version
+    - imagemagick_installed == false or installed != imagemagick_version
   vars:
-    imagemagick_installed: '{{ true if ansible_facts.packages["ImageMagick"] | length > 0  else false }}'
-    installed_version: '{{ ansible_facts.packages["ImageMagick"][0]["version"] | d() }}'
-    installed_release: '{{ ansible_facts.packages["ImageMagick"][0]["release"] | d() }}'
+    imagemagick_installed: '{{ true if ansible_facts.packages["ImageMagick"] is defined else false }}'
+    installed_version: '{{ ansible_facts.packages["ImageMagick"][0]["version"] }}'
+    installed_release: '{{ ansible_facts.packages["ImageMagick"][0]["release"] }}'
+    installed: '{{ installed_version }}-{{ installed_release }}'
+
+- name: Include tasks to install ImageMagick
+  include_tasks:
+    file: install_imagemagick_lib.yml
+    apply:
+      vars:
+        __imagemagick_lib_installed: '{{ imagemagick_lib_installed }}'
+  when: 
+    - imagemagick_lib_version
+    - imagemagick_lib_installed == false or installed != imagemagick_lib_version
+  vars:
+    imagemagick_lib_installed: '{{ true if ansible_facts.packages["ImageMagick-lib"] is defined else false }}'
+    installed_version: '{{ ansible_facts.packages["ImageMagick-lib"][0]["version"] }}'
+    installed_release: '{{ ansible_facts.packages["ImageMagick-lib"][0]["release"] }}'
     installed: '{{ installed_version }}-{{ installed_release }}'
