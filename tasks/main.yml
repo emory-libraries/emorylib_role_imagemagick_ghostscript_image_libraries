@@ -40,7 +40,7 @@
 
 - name: Check if versions match
   set_fact:
-    gs_version_match: '{{ true if gs_version.stdout is version(ghostscript_version, ==) else false }}'
+    gs_version_match: '{{ true if gs_version.stdout is version(ghostscript_version, "==") else false }}'
 
 - name: Include tasks to install ghostscript
   include_tasks:
