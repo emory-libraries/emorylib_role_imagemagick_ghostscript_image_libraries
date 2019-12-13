@@ -7,6 +7,6 @@ imagemagick_base_url: https://imagemagick.org/download/linux/CentOS/x86_64
 imagemagick_version: 7.0.9-8
 imagemagick_lib_version: '{{ imagemagick_version | d (False) }}'
 imagemagick_filename: 'ImageMagick-{{ imagemagick_version }}.x86_64.rpm'
-imagemagick_lib_filename: 'ImageMagick-libs-{{ imagemagick_version }}.x86_64.rpm'
+imagemagick_lib_filename: 'ImageMagick-libs-{{ imagemagick_lib_version }}.x86_64.rpm'
 imagemagick_download_url: '{{ imagemagick_base_url }}/{{ imagemagick_filename }}'
 imagemagick_lib_download_url: '{{ imagemagick_base_url }}/{{ imagemagick_lib_filename }}'
