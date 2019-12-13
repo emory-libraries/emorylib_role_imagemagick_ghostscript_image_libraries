@@ -1,4 +1,9 @@
 ---
+- name: Install Cmake
+  yum:
+    name: cmake
+    state: installed
+    
 - name: Download OpenJPG Source
   unarchive:
     src: '{{ openjpg_download_url }}'
