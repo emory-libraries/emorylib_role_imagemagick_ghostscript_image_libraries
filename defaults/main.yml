@@ -19,12 +19,15 @@ compile_ghostscript: false
 # ghostscript_filename: 'ghostscript-{{ ghostscript_version }}.{{ ghostscript_ext }}'
 # ghostscript_download_url: '{{ ghostscript_base_url }}/{{ ghostscript_filename }}'
 
+## Image Library module_defaults
+img_binaries_dest: /usr/local/bin
+img_library_dest: /usr/local/lib64
 
 ## Openjpg
 openjpg_version: '2.3.1'
 
 openjpg_base_url: https://github.com/uclouvain/openjpeg/releases/download
-openjpg_filename: 'openjpeg-v{{ openjpg_version }}-{{ openjpg_os }}.{{ openjpg_ext }}'
+openjpg_filename: 'openjpeg-v{{ openjpg_version }}-{{ openjpg_os }}'
 openjpg_os: linux-x86_64
 openjpg_ext: tar.gz
-openjpg_download_url: '{{ openjpg_base_url }}/v{{ openjpg_version }}/{{ openjpg_filename }}'
+openjpg_download_url: '{{ openjpg_base_url }}/v{{ openjpg_version }}/{{ openjpg_filename }}.{{ openjpg_ext }}'

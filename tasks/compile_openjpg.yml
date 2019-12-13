@@ -1,21 +1,23 @@
----
-- name: Install Cmake
-  yum:
-    name: cmake
-    state: installed
-    
-- name: Download OpenJPG Source
+--- 
+- name: Download OpenJPG Binaries
   unarchive:
     src: '{{ openjpg_download_url }}'
     dest: /tmp
     remote_src: yes
 
-- name: Configure OpenJPG
-  shell: cmake ./
-  args:
-    chdir: '/tmp/openjpeg-v{{ openjpg_version }}-{{ openjpg_os }}'
+- name: Copy OpenJPG Binaries to Destination Folder
+  copy:
+    dest: '{{ img_binaries_dest }}'
+    src: '/tmp/{{ openjpg_filename }}/bin/*'
+    mode: preserve
+    remote_src: yes
 
-- name: Make install OpenJPG
-  make:
-    chdir: '/tmp/openjpeg-v{{ openjpg_version }}-{{ openjpg_os }}'
-    target: install
+- name: Copy OpenJPG Libaries Files to Library Folder
+  copy:
+    dest: '{{ img_library_dest }}'
+    src: '/tmp/{{ openjpg_filename }}/lib/libopenjp2*'
+    remote_src: yes
+    local_follow: no
+
+- name: Update ldconfig
+  shell: ldconfig
