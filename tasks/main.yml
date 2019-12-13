@@ -1,2 +1,18 @@
 ---
 # tasks file for emorylib_role_imagemagick_ghostscript_image_libraries
+
+- name: Gather package facts
+  package_facts:
+
+- name: Include tasks to install ImageMagick
+  include_tasks:
+    file: install_imagemagick.yml
+    apply:
+      vars:
+        __imagemagick_installed: '{{ imagemagick_installed }}'
+  when: imagemagick_installed is false or installed != imagemagick_version
+  vars:
+    imagemagick_installed: '{{ true if ansible_facts.packages["ImageMagick-libs"] | length > 0  else false }}'
+    installed_version: '{{ ansible_facts.packages["ImageMagick-libs"][0]["version"] | d() }}'
+    installed_release: '{{ ansible_facts.packages["ImageMagick-libs"][0]["release"] | d() }}'
+    installed: '{{ installed_version }}-{{ installed_release }}'
