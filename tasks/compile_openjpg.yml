@@ -6,18 +6,17 @@
     remote_src: yes
 
 - name: Copy OpenJPG Binaries to Destination Folder
-  copy:
+  synchronize:
     dest: '{{ img_binaries_dest }}'
-    src: '/tmp/{{ openjpg_filename }}/bin/*'
-    mode: preserve
-    remote_src: yes
+    src: '/tmp/{{ openjpg_filename }}/bin/'
+  delegate_to: '{{ inventory_hostname }}'
 
 - name: Copy OpenJPG Libaries Files to Library Folder
-  copy:
+  synchronize:
     dest: '{{ img_library_dest }}'
-    src: '/tmp/{{ openjpg_filename }}/lib/libopenjp2*'
-    remote_src: yes
-    local_follow: no
+    src: '/tmp/{{ openjpg_filename }}/lib/'
+    recursive: no
+  delegate_to: '{{ inventory_hostname }}'
 
 - name: Update ldconfig
   shell: ldconfig
