@@ -12,8 +12,9 @@ imagemagick_download_url: '{{ imagemagick_base_url }}/{{ imagemagick_filename }}
 imagemagick_lib_download_url: '{{ imagemagick_base_url }}/{{ imagemagick_lib_filename }}'
 
 ## Ghostscript
-ghostscript_version: '9.50' # Need quotes to avoid dropped trailing 0
-ghostscript_ext: tar.gz
-ghostscript_base_url: https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs950
-ghostscript_filename: 'ghostscript-{{ ghostscript_version }}.{{ ghostscript_ext }}'
-ghostscript_download_url: '{{ ghostscript_base_url }}/{{ ghostscript_filename }}'
+compile_ghostscript: false
+# ghostscript_version: '9.50' # Need quotes to avoid dropped trailing 0
+# ghostscript_ext: tar.gz
+# ghostscript_base_url: https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs950
+# ghostscript_filename: 'ghostscript-{{ ghostscript_version }}.{{ ghostscript_ext }}'
+# ghostscript_download_url: '{{ ghostscript_base_url }}/{{ ghostscript_filename }}'
