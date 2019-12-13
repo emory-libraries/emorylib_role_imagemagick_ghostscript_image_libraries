@@ -33,3 +33,16 @@
     installed_version: '{{ ansible_facts.packages["ImageMagick"][0]["version"] | d() }}'
     installed_release: '{{ ansible_facts.packages["ImageMagick"][0]["release"] | d() }}'
     installed: '{{ installed_version }}-{{ installed_release }}'
+
+- name: Get ghostscript version
+  shell: gs --version
+  register: gs_version
+
+- name: Check if versions match
+  set_fact:
+    gs_version_match: '{{ true if gs_version.stdout is version(ghostscript_version, ==) else false }}'
+
+- name: Include tasks to install ghostscript
+  include_tasks:
+    file: install_ghostscript.yml
+  when: not gs_version_match

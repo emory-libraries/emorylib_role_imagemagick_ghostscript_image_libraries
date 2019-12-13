@@ -10,3 +10,10 @@ imagemagick_filename: 'ImageMagick-{{ imagemagick_version }}.x86_64.rpm'
 imagemagick_lib_filename: 'ImageMagick-libs-{{ imagemagick_lib_version }}.x86_64.rpm'
 imagemagick_download_url: '{{ imagemagick_base_url }}/{{ imagemagick_filename }}'
 imagemagick_lib_download_url: '{{ imagemagick_base_url }}/{{ imagemagick_lib_filename }}'
+
+## Ghostscript
+ghostscript_version: 9.50
+ghostscript_ext: tar.gz
+ghostscript_base_url: https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs950
+ghostscript_filename: 'ghostscript-{{ ghostscript_version }}.{{ ghostscript_ext }}'
+ghostscript_download_url: '{{ ghostscript_base_url }}/{{ ghostscript_filename }}'

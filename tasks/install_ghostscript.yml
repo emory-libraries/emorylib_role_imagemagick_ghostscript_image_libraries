@@ -1,0 +1,14 @@
+---
+- name: Remove old Ghostscript version
+  package:
+    name: ghostscript
+    state: absent
+
+- name: Download Ghostscript source
+  unarchive:
+    src: '{{ ghostscript_download_url }}'
+    dest: /tmp
+  register: gs_dir
+
+- debug:
+    var: gs_dir  
