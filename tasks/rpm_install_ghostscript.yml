@@ -2,4 +2,4 @@
 - name: RPM Install Ghostscript
   yum:
     name: ghostscript
-    state: latest
+    state: installed
