@@ -7,7 +7,7 @@
 - name: Rsync Binaries to {{ binaries_base_path }}
   synchronize:
     dest: '{{ binaries_base_path }}/bin/'
-    src: '/tmp/{{ kakadu_filename }}'
+    src: '/tmp/{{ kakadu_filename }}/'
     rsync_opts:
       - '--exclude=.txt'
       - '--exclude=.so'
@@ -16,10 +16,9 @@
 - name: Rsync Library Files to {{ binaries_base_path }}/lib64
   synchronize:
     dest: '{{ binaries_base_path }}/lib64/'
-    src: '/tmp/{{ kakadu_filename }}'
+    src: '/tmp/{{ kakadu_filename }}/'
     rsync_opts:
       - '--include=.so'
       - '--exclude=*'
-    remote_src: yes
   delegate_to: '{{ inventory_hostname }}'
   notify: ldconfig
