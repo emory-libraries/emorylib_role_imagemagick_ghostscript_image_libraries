@@ -18,12 +18,12 @@
   loop: '{{ paths | zip(sources) | list }}'
   vars:
     paths:
-      - '{{ binaries_base_path }}/bin'
-      - '{{ binaries_base_path }}/lib64'
-      - '{{ binaries_base_path }}/include'
+      - '{{ binaries_base_path }}/bin/'
+      - '{{ binaries_base_path }}/lib64/'
+      - '{{ binaries_base_path }}/include/'
     sources:
-      - '/tmp/{{ libpng_filename }}/usr/bin'
-      - '/tmp/{{ libpng_filename }}/usr/lib64'
-      - '/tmp/{{ libpng_filename }}/usr/include'
+      - '/tmp/{{ libpng_filename }}/usr/bin/'
+      - '/tmp/{{ libpng_filename }}/usr/lib64/'
+      - '/tmp/{{ libpng_filename }}/usr/include/'
   notify: ldconfig
     
