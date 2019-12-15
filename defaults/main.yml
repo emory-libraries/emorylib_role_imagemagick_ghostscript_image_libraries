@@ -41,4 +41,4 @@ libpng_download_url: '{{ libpng_base_url }}/{{ libpng_filename }}.{{ libpng_ext 
 libpng_ext: txz
 libpng_arch: x86_64 
 libpng_filename: 'libpng-{{ libpng_version }}-{{ libpng_arch }}-{{ libpng_release }}'
-libpng_option: '{{ "64" in libpng_arch | terinary ("64", "") }}'
+libpng_option: '{{ "64" in libpng_arch | ternary ("64", "") }}'
