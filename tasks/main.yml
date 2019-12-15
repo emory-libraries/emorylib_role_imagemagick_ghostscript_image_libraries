@@ -71,3 +71,9 @@
     - libpng_version is defined
     - libpng_version != false
     - compile_libpng
+
+- name: Include tasks to install kakadu
+  include_tasks:
+    file: install_kakadu.yml
+  when: 
+    - install_kakadu

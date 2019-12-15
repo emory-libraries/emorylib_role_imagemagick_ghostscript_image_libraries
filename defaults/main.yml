@@ -50,3 +50,10 @@ compile_libpng_base_url: 'https://sourceforge.net/projects/libpng/files/libpng{{
 compile_libpng_filename: 'libpng-{{ libpng_version }}'
 compile_libpng_ext: tar.gz
 compile_libpng_download_url: '{{ compile_libpng_base_url }}/{{ compile_libpng_filename }}.{{ compile_libpng_ext }}/download'
+
+## Kakadu
+install_kakadu: yes
+kakadu_base_url: https://kakadusoftware.com/wp-content/uploads/2014/06
+kakadu_download_url: '{{ kakadu_base_url }}/{{ kakadu_filename }}.{{ kakadu_ext }}'
+kakadu_filename: KDU7A2_Demo_Apps_for_Centos7-x86-64_170827
+kakadu_ext: zip
