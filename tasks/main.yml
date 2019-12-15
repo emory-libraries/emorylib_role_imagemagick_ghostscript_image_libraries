@@ -44,9 +44,9 @@
     file: rpm_install_ghostscript.yml
   when: not compile_ghostscript
 
-- name: Include tasks to compile openjpg
+- name: Include tasks to install openjpg binaries
   include_tasks:
-    file: compile_openjpg.yml
+    file: install_openjpg.yml
   when:
     - openjpg_version is defined
     - openjpg_version != false
