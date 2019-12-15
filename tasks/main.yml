@@ -50,3 +50,10 @@
   when:
     - openjpg_version is defined
     - openjpg_version != false
+
+- name: Include tasks to install libpng binaries
+  include_tasks:
+    file: install_libpng.yml
+  when:
+    - libpng_version is defined
+    - libpng_version != false
