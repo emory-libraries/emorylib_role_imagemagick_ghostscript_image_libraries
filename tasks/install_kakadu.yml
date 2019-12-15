@@ -9,14 +9,14 @@
     dest: '{{ binaries_base_path }}/bin/'
     src: '/tmp/{{ kakadu_filename }}'
     rsync_opts:
-      - '--exclude "*.txt"'
-      - '--exclude "*.so"'
+      - '--exclude=.txt'
+      - '--exclude=.so'
 
 - name: Rsync Library Files to {{ binaries_base_path }}/lib64
   synchronize:
     dest: '{{ binaries_base_path }}/lib64/'
     src: '/tmp/{{ kakadu_filename }}'
     rsync_opts:
-      - '--include "*.so"'
-      - '--exclude "*"'
+      - '--include=.so'
+      - '--exclude=*'
   notify: ldconfig
