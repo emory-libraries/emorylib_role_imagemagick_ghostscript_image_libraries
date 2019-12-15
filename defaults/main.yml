@@ -20,8 +20,7 @@ compile_ghostscript: false
 # ghostscript_download_url: '{{ ghostscript_base_url }}/{{ ghostscript_filename }}'
 
 ## Image Library module_defaults
-img_binaries_dest: /usr/local/bin
-img_library_dest: /usr/local/lib64
+binaries_base_path: /usr/local
 
 ## Openjpg
 openjpg_version: '2.3.1'
@@ -31,3 +30,15 @@ openjpg_filename: 'openjpeg-v{{ openjpg_version }}-{{ openjpg_os }}'
 openjpg_os: linux-x86_64
 openjpg_ext: tar.gz
 openjpg_download_url: '{{ openjpg_base_url }}/v{{ openjpg_version }}/{{ openjpg_filename }}.{{ openjpg_ext }}'
+
+## LibPNG
+
+libpng_version: '1.6.37'
+libpng_release: '1'
+
+libpng_base_url: 'http://slackware.osuosl.org/slackware{{ libpng_option }}-current/slackware{{ libpng_option }}/l'
+libpng_download_url: '{{ libpng_base_url }}/{{ libpng_filename }}.{{ libpng_ext }}'
+libpng_ext: txz
+libpng_arch: x86_64 
+libpng_filename: 'libpng-{{ libpng_version }}-{{ libpng_arch }}-{{ libpng_release }}'
+libpng_option: '{{ "64" in libpng_arch | terinary ("64", "") }}'
