@@ -8,6 +8,7 @@
   synchronize:
     dest: '{{ binaries_base_path }}/bin/'
     src: '/tmp/{{ kakadu_filename }}'
+    remote_src: yes
     rsync_opts:
       - '--exclude=.txt'
       - '--exclude=.so'
@@ -19,4 +20,5 @@
     rsync_opts:
       - '--include=.so'
       - '--exclude=*'
+    remote_src: yes
   notify: ldconfig
