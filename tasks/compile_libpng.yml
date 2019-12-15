@@ -9,6 +9,7 @@
     src: '/tmp/{{ compile_libpng_filename }}.{{ compile_libpng_ext }}'
     dest: /tmp
     creates: '/tmp/{{ compile_libpng_filename }}'
+    remote_src: yes
 
 - name: Configure LibPNG
   shell: ./configure
