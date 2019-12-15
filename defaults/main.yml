@@ -42,3 +42,11 @@ libpng_ext: txz
 libpng_arch: x86_64 
 libpng_filename: 'libpng-{{ libpng_version }}-{{ libpng_arch }}-{{ libpng_release }}'
 libpng_bool: '{{ "64" in libpng_arch }}'
+libpng_major_version: '{{ libpng_version.split(".")[:2] | join() | d() }}'
+
+## Compile LibPNG
+compile_libpng: yes
+compile_libpng_base_url: 'https://sourceforge.net/projects/libpng/files/libpng{{ libpng_major_version }}/{{ libpng_version }}'
+compile_libpng_filename: 'libpng-{{ libpng_version }}'
+compile_libpng_ext: tar.gz
+compile_libpng_download_url: '{{ compile_libpng_base_url }}/{{ compile_libpng_filename }}.{{ compile_libpng_ext }}/download'
