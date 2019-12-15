@@ -23,7 +23,7 @@
       - '{{ binaries_base_path }}/include'
     sources:
       - '/tmp/{{ libpng_filename }}/usr/bin'
-      - '/tmp/{{ libpng_filename }}/usr/lib'
+      - '/tmp/{{ libpng_filename }}/usr/lib64'
       - '/tmp/{{ libpng_filename }}/usr/include'
   notify: ldconfig
     
