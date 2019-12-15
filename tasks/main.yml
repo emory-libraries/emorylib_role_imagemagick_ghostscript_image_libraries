@@ -2,7 +2,7 @@
 # tasks file for emorylib_role_imagemagick_ghostscript_image_libraries
 
 - name: Ensure Library Folder is in LD Conf Folder
-  file:
+  copy:
     dest: '/etc/ld.so.conf.d/{{ binaries_base_path | regex_replace("/", "_") }}_lib64.conf'
     content: '{{ binaries_base_path }}/lib64'
 
