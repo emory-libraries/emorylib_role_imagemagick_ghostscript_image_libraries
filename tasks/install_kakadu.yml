@@ -8,10 +8,10 @@
   synchronize:
     dest: '{{ binaries_base_path }}/bin/'
     src: '/tmp/{{ kakadu_filename }}'
-    remote_src: yes
     rsync_opts:
       - '--exclude=.txt'
       - '--exclude=.so'
+  delegate_to: '{{ inventory_hostname }}'
 
 - name: Rsync Library Files to {{ binaries_base_path }}/lib64
   synchronize:
@@ -21,4 +21,5 @@
       - '--include=.so'
       - '--exclude=*'
     remote_src: yes
+  delegate_to: '{{ inventory_hostname }}'
   notify: ldconfig
